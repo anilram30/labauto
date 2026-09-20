@@ -1,0 +1,6 @@
+setpoint_c,sample_temperature_c,state,trust,verdict,headline,headline_margin_db,il_100mhz_db,il_600mhz_db,r_loop_ohm,archive_dir
+-40.0,-39.99,DONE,trusted,PASS,insertion_loss[A],0.296,2.839,7.540,2.065476,/home/claude/labauto/docs/_figwork/archive/2026/C1000T1A-L24071-0042S__tempsweep-1000base-t1_T-040C__20260918T103045
+23.0,23.00,DONE,trusted,PASS,insertion_loss[A],0.269,2.953,8.053,2.723473,/home/claude/labauto/docs/_figwork/archive/2026/C1000T1A-L24071-0042S__tempsweep-1000base-t1_T+023C__20260918T114520
+85.0,84.99,DONE,trusted,PASS,insertion_loss[A],0.224,3.085,8.586,3.379456,/home/claude/labauto/docs/_figwork/archive/2026/C1000T1A-L24071-0042S__tempsweep-1000base-t1_T+085C__20260918T125945
+105.0,105.01,DONE,trusted,PASS,insertion_loss[A],0.215,3.124,8.756,3.592187,/home/claude/labauto/docs/_figwork/archive/2026/C1000T1A-L24071-0042S__tempsweep-1000base-t1_T+105C__20260918T141400
+125.0,125.01,DONE,trusted,PASS,insertion_loss[A],0.200,3.167,8.929,3.805336,/home/claude/labauto/docs/_figwork/archive/2026/C1000T1A-L24071-0042S__tempsweep-1000base-t1_T+125C__20260918T151405

@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "labauto"
+version = "0.1.1"
+description = "Automated cable measurement laboratory: SCPI VNA and climate-chamber drivers with behavioural simulators, calibration management, barcode-driven batches, temperature sweeps, defensible metadata, hand-off to cablecheck."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Sreeram Anil" }]
+keywords = ["laboratory-automation", "scpi", "instrument-control", "metrology", "test-automation", "vna", "traceability", "data-provenance", "iso-17025", "python"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Manufacturing",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = ["numpy>=1.24", "cablecheck>=0.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.8"]
+visa = ["pyvisa>=1.13", "pyvisa-py>=0.7"]
+
+[project.urls]
+Homepage = "https://github.com/anilram30/labauto"
+Toolchain = "https://github.com/anilram30/hf-cable-toolchain"
+Report = "https://github.com/anilram30/labauto/blob/main/docs/report.pdf"
+Issues = "https://github.com/anilram30/labauto/issues"
+Changelog = "https://github.com/anilram30/labauto/blob/main/CHANGELOG.md"
+
+[project.scripts]
+labauto = "labauto.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"labauto" = ["procedures/*.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+# E702 and E731: this codebase deliberately groups short related statements on one line
+# (plotting calls, tuple unpacking) and uses small lambdas for local helpers.
+# E741: `l` reads naturally for an inductance or a length in transmission-line code.
+ignore = ["E702", "E731", "E741"]

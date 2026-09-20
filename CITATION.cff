@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "labauto: Runs a high-frequency cable laboratory as a programmable, traceable, self-validating measurement system"
+abstract: "Runs a high-frequency cable laboratory as a programmable, traceable, self-validating measurement system."
+type: software
+authors:
+  - family-names: Anil
+    given-names: Sreeram
+    email: sreeramanil30@gmail.com
+repository-code: "https://github.com/anilram30/labauto"
+license: MIT
+keywords:
+  - laboratory-automation
+  - scpi
+  - instrument-control
+  - metrology
+  - test-automation
+  - vna
+  - traceability
+  - data-provenance
+  - iso-17025
+  - python

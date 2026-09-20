@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest a capability or an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What engineering question is currently hard or impossible to answer?
+    validations: {required: true}
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: If you have a method, standard or reference in mind, name it here.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

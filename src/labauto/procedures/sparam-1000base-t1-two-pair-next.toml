@@ -1,0 +1,73 @@
+# Two pairs with near-end crosstalk between them, on a 4-port analyser (three hook-ups).
+[procedure]
+id = "sparam-1000base-t1-two-pair-next"
+version = "1.0"
+title = "Two pairs + NEXT, 1000BASE-T1 link segment, 4-port analyser"
+kind = "s-parameters"
+cable_type = "1000base-t1-link-segment"
+description = """Pair A and pair B each as a 4-port file, then both near ends for NEXT.
+Three connection prompts; the engine verifies each hook-up before it accepts the sweep."""
+
+[requires.vna]
+ports = 4
+fmin_hz = 1e6
+fmax_hz = 600e6
+features = ["s-parameters", "calsets"]
+
+[sweep]
+start_hz = 1e6
+stop_hz = 600e6
+points = 1200
+ifbw_hz = 1000
+power_dbm = 0
+averages = 1
+
+[calibration]
+type = "SOLT"
+ports = [1, 2, 3, 4]
+max_age_days = 7
+max_delta_t_k = 3.0
+verify = true
+verify_standard = "CHECK-ATT20"
+verify_reference = "check_att20.s2p"
+verify_port_pairs = [[1, 2], [3, 4]]
+verify_tol_db = 0.10
+verify_tol_deg = 3.0
+verify_rl_min_db = 30
+verify_every_hours = 8
+
+[fixture]
+method = "none"
+
+[environment]
+ambient_min_c = 18
+ambient_max_c = 28
+
+[[files]]
+name = "pairA"
+ports = [1, 2, 3, 4]
+port_map = "A+near,A-near,A+far,A-far"
+prompt = "Pair A: near +/- to ports 1/2, far +/- to ports 3/4"
+
+[[files]]
+name = "pairB"
+ports = [1, 2, 3, 4]
+port_map = "B+near,B-near,B+far,B-far"
+prompt = "Pair B: near +/- to ports 1/2, far +/- to ports 3/4"
+
+[[files]]
+name = "nextAB"
+ports = [1, 2, 3, 4]
+port_map = "A+near,A-near,B+near,B-near"
+prompt = "NEXT: pair A near +/- to ports 1/2, pair B near +/- to ports 3/4, far ends terminated"
+quantities = ["next"]
+
+[checks]
+max_repeats = 2
+
+[metadata]
+mandatory = ["operator", "sample.sample_id", "instrument.vna.identity.serial", "calibration.id",
+             "calibration.verification.status", "environment.ambient_c", "procedure.hash"]
+
+[downstream]
+analysers = ["cablecheck"]

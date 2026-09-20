@@ -1,0 +1,90 @@
+# S-parameter characterisation of one balanced pair against the 1000BASE-T1 link-segment limits.
+[procedure]
+id = "sparam-1000base-t1-pair"
+version = "1.2"
+title = "Single pair S-parameters, 1000BASE-T1 link segment (1-600 MHz)"
+kind = "s-parameters"
+cable_type = "1000base-t1-link-segment"
+description = """Four-port single-ended measurement of one pair, converted to mixed mode by cablecheck.
+Loop resistance is measured as a cross-check on the low-frequency insertion loss."""
+
+[requires.vna]
+ports = 4
+fmin_hz = 1e6
+fmax_hz = 600e6
+features = ["s-parameters", "calsets"]
+
+[requires.dmm]
+optional = true
+features = ["4-wire-resistance"]
+
+[requires.scanner]
+optional = true
+
+[sweep]
+start_hz = 1e6
+stop_hz = 600e6
+points = 1200
+ifbw_hz = 1000
+power_dbm = 0
+averages = 1
+sweep_type = "LIN"
+
+[calibration]
+type = "SOLT"
+ports = [1, 2, 3, 4]
+max_age_days = 7
+max_delta_t_k = 3.0
+verify = true
+verify_standard = "CHECK-ATT20"
+verify_reference = "check_att20.s2p"
+verify_port_pairs = [[1, 2], [3, 4]]
+verify_tol_db = 0.10
+verify_tol_deg = 3.0
+verify_rl_min_db = 30
+verify_every_hours = 8
+
+[fixture]
+method = "none"
+
+[environment]
+ambient_min_c = 18
+ambient_max_c = 28
+sample_soak_min = 0
+
+[[files]]
+name = "pairA"
+ports = [1, 2, 3, 4]
+port_map = "A+near,A-near,A+far,A-far"
+prompt = "Connect pair A: near end + to port 1, - to port 2; far end + to port 3, - to port 4"
+
+[[aux]]
+name = "loop_resistance"
+instrument = "dmm"
+method = "resistance_4w"
+prompt = "Short the far end of pair A and connect the four-wire leads at the near end"
+
+[checks]
+passivity_max = 0.02
+reciprocity_max_db = 0.10
+trace_noise_max_db = 0.05
+connection_min_db = -60
+length_tol_pct = 12
+nvp = 0.68
+il_rdc_ratio = [0.8, 4.0]
+il_per_m_100mhz_db = [0.05, 0.6]
+max_repeats = 2
+repeat_on = ["fail"]
+quarantine_on = ["fail"]
+
+[metadata]
+mandatory = [
+  "operator", "sample.sample_id", "sample.lot", "sample.length_m", "sample.cable_type",
+  "instrument.vna.identity.serial", "instrument.vna.sweep", "instrument.vna.calset_active",
+  "calibration.id", "calibration.date", "calibration.verification.status",
+  "environment.ambient_c", "procedure.hash", "software.labauto", "software.cablecheck",
+]
+
+[downstream]
+analysers = ["cablecheck", "zprofile", "cableanalytics"]
+report = true          # HTML report of project A in analysis/ (false: result JSON only, faster)

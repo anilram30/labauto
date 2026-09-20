@@ -1,0 +1,119 @@
+{
+ "db": {
+  "jobs": 7,
+  "files": 9,
+  "trusted": 6,
+  "rejected": 1
+ },
+ "replay": [
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 9
+   },
+   "verdict_archived": "PASS",
+   "verdict_replayed": "PASS",
+   "headline_archived": 0.26158572045658557,
+   "headline_replayed": 0.26158572045658557,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 9
+   },
+   "verdict_archived": "PASS",
+   "verdict_replayed": "PASS",
+   "headline_archived": 0.2596479807393498,
+   "headline_replayed": 0.2596479807393498,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 9
+   },
+   "verdict_archived": "PASS",
+   "verdict_replayed": "PASS",
+   "headline_archived": 0.2609451334300085,
+   "headline_replayed": 0.2609451334300085,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 9
+   },
+   "verdict_archived": "FAIL",
+   "verdict_replayed": "FAIL",
+   "headline_archived": -2.8345415984545266,
+   "headline_replayed": -2.8345415984545266,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 9
+   },
+   "verdict_archived": "FAIL",
+   "verdict_replayed": "FAIL",
+   "headline_archived": -4.192102171969125,
+   "headline_replayed": -4.192102171969125,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 5
+   },
+   "skipped": "quarantined job: raw data only, no analysis to reproduce",
+   "verdict_archived": null,
+   "verdict_replayed": null
+  },
+  {
+   "ok": true,
+   "integrity": {
+    "ok": true,
+    "modified": [],
+    "missing": [],
+    "unlisted": [],
+    "files": 11
+   },
+   "verdict_archived": "FAIL",
+   "verdict_replayed": "FAIL",
+   "headline_archived": -6.0964560772356435,
+   "headline_replayed": -6.0964560772356435,
+   "software_archived": "0.1.1",
+   "software_now": "0.1.1"
+  }
+ ]
+}

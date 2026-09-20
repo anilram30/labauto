@@ -1,0 +1,50 @@
+{
+ "job": {
+  "job_id": "C1000T1A-L24071-0043C__sparam-1000base-t1-pair__20260918T103043",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "PASS",
+  "headline_margin": 0.2609451334300085,
+  "procedure_hash": "d5dd9ac95b1fbdcd2c7895aa11d2e5f062d231539ea549b92f5896835273380f",
+  "calibration_id": "CAL-20260916-SOLT4"
+ },
+ "files": {
+  "analysis/cableanalytics.json": {
+   "sha256": "71323914003bc0b6e857214ca72eb333f9847eebcc4adb78ee1fa23656ab2d2a",
+   "bytes": 470
+  },
+  "analysis/cablecheck_report.html": {
+   "sha256": "5a872243fe0ed44990b3a607217f01f0c60bea50d34101edd1862a6e2706a446",
+   "bytes": 487533
+  },
+  "analysis/cablecheck_result.json": {
+   "sha256": "855362a8091f90ed4ff01e7728def57140bef216ec126f3106f92a904357a1f8",
+   "bytes": 403906
+  },
+  "analysis/zprofile.json": {
+   "sha256": "071b1d57dd093391d457e245147aa7c1d07f49f74083799dc1683c50c2f3511c",
+   "bytes": 5888
+  },
+  "aux.json": {
+   "sha256": "1d4917c02e53992c8ee74c2704d60b526822458beb83a67c07da2afe14996081",
+   "bytes": 467
+  },
+  "journal.jsonl": {
+   "sha256": "d44e317107939fb61d256ddd16b0cdf89ec1d525e11e3f12efdbeced672df7f2",
+   "bytes": 3271
+  },
+  "pairA.s4p": {
+   "sha256": "388ce7189346107951d51dcb4f7161c377473f8a5247bd0fb5178710ca6c6ea5",
+   "bytes": 927808
+  },
+  "pairA.s4p.meta.json": {
+   "sha256": "d136bd2ab301ec77cac30cd59ee9b8c1d51bbe6e6dc5dfdfe9f820a00de4dec1",
+   "bytes": 6977
+  },
+  "procedure.toml": {
+   "sha256": "d5dd9ac95b1fbdcd2c7895aa11d2e5f062d231539ea549b92f5896835273380f",
+   "bytes": 2329
+  }
+ },
+ "sealed": "2026-09-18T10:30:31+00:00"
+}

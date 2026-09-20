@@ -1,0 +1,400 @@
+[
+ {
+  "sample": "C1000T1A-L24071-0041",
+  "profile": "good",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "PASS",
+  "headline": "insertion_loss[A]",
+  "margin": 0.26158572045658557,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.00418729472618784
+    ],
+    "reciprocity": [
+     "pass",
+     0.011028934415995813
+    ],
+    "connection": [
+     "pass",
+     -0.39531427954341436
+    ],
+    "trace_noise": [
+     "pass",
+     0.000177462410817547
+    ],
+    "length": [
+     "pass",
+     14.97944118245445
+    ],
+    "il_rdc": [
+     "pass",
+     3.3012200932731313
+    ],
+    "il_envelope": [
+     "pass",
+     0.19764869793904438
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1A-L24071-00418__sparam-1000base-t1-pair__20260918T103023",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1A-L24071-0042",
+  "profile": "good",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "PASS",
+  "headline": "insertion_loss[A]",
+  "margin": 0.2596479807393498,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.004557166559159609
+    ],
+    "reciprocity": [
+     "pass",
+     0.01798835449553838
+    ],
+    "connection": [
+     "pass",
+     -0.3972520192606501
+    ],
+    "trace_noise": [
+     "pass",
+     0.00017569725282130525
+    ],
+    "length": [
+     "pass",
+     14.988177101896861
+    ],
+    "il_rdc": [
+     "pass",
+     3.3533696682441536
+    ],
+    "il_envelope": [
+     "pass",
+     0.19750262921021783
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1A-L24071-0042S__sparam-1000base-t1-pair__20260918T103038",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1A-L24071-0043",
+  "profile": "marginal",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "PASS",
+  "headline": "insertion_loss[A]",
+  "margin": 0.2609451334300085,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.00439744783902285
+    ],
+    "reciprocity": [
+     "pass",
+     0.010884707669490765
+    ],
+    "connection": [
+     "pass",
+     -0.3959548665699914
+    ],
+    "trace_noise": [
+     "pass",
+     0.00018248122585438998
+    ],
+    "length": [
+     "pass",
+     14.983409205944712
+    ],
+    "il_rdc": [
+     "pass",
+     3.3231196921084303
+    ],
+    "il_envelope": [
+     "pass",
+     0.20522795311960668
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1A-L24071-0043C__sparam-1000base-t1-pair__20260918T103043",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1A-L24072-0007",
+  "profile": "lossy",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "FAIL",
+  "headline": "insertion_loss[A]",
+  "margin": -2.8345415984545266,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.008312945764000879
+    ],
+    "reciprocity": [
+     "pass",
+     0.01705490263336331
+    ],
+    "connection": [
+     "pass",
+     -0.5236421944493097
+    ],
+    "trace_noise": [
+     "pass",
+     0.00029989911258571897
+    ],
+    "length": [
+     "pass",
+     14.958501981908457
+    ],
+    "il_rdc": [
+     "pass",
+     2.4504517767281695
+    ],
+    "il_envelope": [
+     "pass",
+     0.32151566080681687
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1A-L24072-0007V__sparam-1000base-t1-pair__20260918T103048",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1A-L24072-0008",
+  "profile": "defect",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "FAIL",
+  "headline": "impedance_min[A]",
+  "margin": -4.192102171969125,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.005360677148626314
+    ],
+    "reciprocity": [
+     "pass",
+     0.03583530182940907
+    ],
+    "connection": [
+     "pass",
+     -0.409240570953898
+    ],
+    "trace_noise": [
+     "pass",
+     0.0001912805611304373
+    ],
+    "length": [
+     "pass",
+     15.239537959995669
+    ],
+    "il_rdc": [
+     "pass",
+     3.3273279144722303
+    ],
+    "il_envelope": [
+     "pass",
+     0.20095272752245313
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1A-L24072-0008F__sparam-1000base-t1-pair__20260918T103053",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1A-L24072-0009",
+  "profile": "mislabelled",
+  "state": "REJECTED",
+  "trust": "rejected",
+  "verdict": null,
+  "headline": null,
+  "margin": null,
+  "attempts": 2,
+  "reason": "pairA: length: electrical length 9.00 m from group delay 44.1 ns at NVP 0.68 (value 8.99823070789928)",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.003416794637824516
+    ],
+    "reciprocity": [
+     "pass",
+     0.029402939891156464
+    ],
+    "connection": [
+     "pass",
+     -0.2519718327726348
+    ],
+    "trace_noise": [
+     "pass",
+     0.0002605933244736618
+    ],
+    "length": [
+     "fail",
+     8.99823070789928
+    ],
+    "il_rdc": [
+     "pass",
+     3.5688072750727446
+    ],
+    "il_envelope": [
+     "pass",
+     0.1314734445888393
+    ]
+   }
+  },
+  "archive": "archive/2026/quarantine/C1000T1A-L24072-0009Z__sparam-1000base-t1-pair__20260918T103058",
+  "calibration": "valid",
+  "verification": "pass"
+ },
+ {
+  "sample": "C1000T1B-L24080-0101",
+  "profile": "good",
+  "state": "DONE",
+  "trust": "trusted",
+  "verdict": "FAIL",
+  "headline": "next[A->B]",
+  "margin": -6.0964560772356435,
+  "attempts": 1,
+  "reason": "",
+  "checks": {
+   "pairA": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.0029385191998004823
+    ],
+    "reciprocity": [
+     "pass",
+     0.015479347445791998
+    ],
+    "connection": [
+     "pass",
+     -0.2678501811571671
+    ],
+    "trace_noise": [
+     "pass",
+     0.00013158636851935912
+    ],
+    "length": [
+     "pass",
+     10.054439455305495
+    ],
+    "il_envelope": [
+     "pass",
+     0.201535715817603
+    ]
+   },
+   "pairB": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.0034046498476953957
+    ],
+    "reciprocity": [
+     "pass",
+     0.018679249421075236
+    ],
+    "connection": [
+     "pass",
+     -0.2717998397686385
+    ],
+    "trace_noise": [
+     "pass",
+     0.00013069154823485164
+    ],
+    "length": [
+     "pass",
+     10.05443965585776
+    ],
+    "il_envelope": [
+     "pass",
+     0.20192388815116807
+    ]
+   },
+   "nextAB": {
+    "grid": [
+     "pass",
+     1200.0
+    ],
+    "passivity": [
+     "pass",
+     -0.6903264689080524
+    ],
+    "reciprocity": [
+     "pass",
+     0.07676057912560941
+    ],
+    "far_end_termination": [
+     "pass",
+     16.692531340088085
+    ],
+    "connection": [
+     "pass",
+     21.35940282226609
+    ]
+   }
+  },
+  "archive": "archive/2026/C1000T1B-L24080-0101T__sparam-1000base-t1-two-pair-next__20260918T103108",
+  "calibration": "valid",
+  "verification": "pass"
+ }
+]

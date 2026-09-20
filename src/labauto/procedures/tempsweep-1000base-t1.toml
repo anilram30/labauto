@@ -1,0 +1,87 @@
+# Climate-chamber temperature sweep of one pair; one archived measurement set per temperature.
+[procedure]
+id = "tempsweep-1000base-t1"
+version = "1.1"
+title = "Temperature sweep -40..125 C, single pair, 1000BASE-T1 limits"
+kind = "temperature-sweep"
+cable_type = "1000base-t1-link-segment"
+description = """The sample coil sits in the chamber with the test leads through the port.
+At each temperature: chamber stable per the criterion, then the sample soak, then the sweep.
+Each temperature point is a full job (calibration check, validation, archive, analysis)."""
+
+[requires.vna]
+ports = 4
+fmin_hz = 1e6
+fmax_hz = 600e6
+features = ["s-parameters", "calsets"]
+
+[requires.chamber]
+tmin_c = -40
+tmax_c = 125
+features = ["temperature"]
+
+[requires.dmm]
+optional = true
+features = ["4-wire-resistance"]
+
+[sweep]
+start_hz = 1e6
+stop_hz = 600e6
+points = 1200
+ifbw_hz = 1000
+power_dbm = 0
+averages = 1
+
+[calibration]
+type = "SOLT"
+ports = [1, 2, 3, 4]
+max_age_days = 7
+max_delta_t_k = 3.0
+verify = true
+verify_standard = "CHECK-ATT20"
+verify_reference = "check_att20.s2p"
+verify_port_pairs = [[1, 2], [3, 4]]
+verify_tol_db = 0.10
+verify_tol_deg = 3.0
+verify_rl_min_db = 30
+verify_every_hours = 8
+
+[fixture]
+method = "none"
+
+[environment]
+ambient_min_c = 18
+ambient_max_c = 28
+sample_soak_min = 45
+
+[temperatures]
+values = [-40, 23, 85, 105, 125]
+tol_k = 0.5
+stable_s = 300
+max_slope_k_per_min = 0.2
+sample_s = 10
+timeout_s = 14400
+
+[[files]]
+name = "pairA"
+ports = [1, 2, 3, 4]
+port_map = "A+near,A-near,A+far,A-far"
+prompt = "Pair A through the chamber port: near +/- to ports 1/2, far +/- to ports 3/4"
+
+[[aux]]
+name = "loop_resistance"
+instrument = "dmm"
+method = "resistance_4w"
+
+[checks]
+max_repeats = 2
+# IL(1 MHz)/IL_dc scales as rho^-1/2 (skin effect over DC): ~3.4 at 23 C, ~4.4 at -40 C, ~2.9 at 125 C
+il_rdc_ratio = [0.7, 5.5]
+
+[metadata]
+mandatory = ["operator", "sample.sample_id", "instrument.vna.identity.serial", "calibration.id",
+             "calibration.verification.status", "environment.chamber.setpoint_c", "environment.chamber.stable",
+             "environment.sample_temperature_c", "procedure.hash"]
+
+[downstream]
+analysers = ["cablecheck", "cableanalytics"]

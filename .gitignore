@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Testing and tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Documentation build intermediates
+docs/_figwork/
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc
+
+# Generated output
+demo_out/
+*.sqlite

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: The rest of the toolchain
+    url: https://github.com/anilram30/hf-cable-toolchain
+    about: Architecture, the other six packages, and how they fit together.

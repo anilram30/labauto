@@ -1,0 +1,51 @@
+# Quick incoming-inspection sweep against the lab's generic 100 ohm STP limits, coarse grid.
+[procedure]
+id = "sparam-generic-stp"
+version = "1.0"
+title = "Incoming inspection, generic 100 ohm STP, 1-1000 MHz"
+kind = "s-parameters"
+cable_type = "lab-generic-100ohm-stp"
+description = "Coarser grid and wider IF bandwidth for throughput; no cross-checks beyond the data itself."
+
+[requires.vna]
+ports = 4
+fmin_hz = 1e6
+fmax_hz = 1000e6
+features = ["s-parameters"]
+
+[sweep]
+start_hz = 1e6
+stop_hz = 1000e6
+points = 801
+ifbw_hz = 5000
+power_dbm = 0
+
+[calibration]
+type = "SOLT"
+ports = [1, 2, 3, 4]
+max_age_days = 14
+max_delta_t_k = 5.0
+verify = false
+
+[fixture]
+method = "none"
+
+[environment]
+ambient_min_c = 15
+ambient_max_c = 30
+
+[[files]]
+name = "pairA"
+ports = [1, 2, 3, 4]
+port_map = "A+near,A-near,A+far,A-far"
+prompt = "Pair A: near +/- to ports 1/2, far +/- to ports 3/4"
+
+[checks]
+max_repeats = 1
+il_per_m_100mhz_db = [0.03, 1.0]
+
+[metadata]
+mandatory = ["operator", "sample.sample_id", "instrument.vna.identity.serial", "calibration.id", "procedure.hash"]
+
+[downstream]
+analysers = ["cablecheck"]

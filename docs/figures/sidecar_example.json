@@ -1,0 +1,317 @@
+{
+ "schema": "labauto.measurement/1",
+ "job_id": "C1000T1A-L24071-0043C__sparam-1000base-t1-pair__20260918T103043",
+ "campaign": "incoming-inspection-wk38",
+ "batch": "B-2026-38-01",
+ "operator": "sanil",
+ "site": "LAB1",
+ "notes": "demo batch: six samples of two lots",
+ "sample": {
+  "barcode": "C1000T1A-L24071-0043C",
+  "sample_id": "C1000T1A-L24071-0043",
+  "part_number": "C1000T1A",
+  "lot": "L24071",
+  "cable_type": "1000base-t1-link-segment",
+  "length_m": 15.0,
+  "design": "D100-PE-035",
+  "notes": "",
+  "sim_profile": "marginal",
+  "sim_pairs": "1",
+  "barcode_parsed": {
+   "raw": "C1000T1A-L24071-0043C",
+   "scheme": "internal",
+   "part": "C1000T1A",
+   "lot": "L24071",
+   "serial": "0043",
+   "check_ok": true
+  }
+ },
+ "procedure": {
+  "id": "sparam-1000base-t1-pair",
+  "version": "1.2",
+  "title": "Single pair S-parameters, 1000BASE-T1 link segment (1-600 MHz)",
+  "kind": "s-parameters",
+  "cable_type": "1000base-t1-link-segment",
+  "hash": "d5dd9ac95b1fbdcd2c7895aa11d2e5f062d231539ea549b92f5896835273380f",
+  "path": "/home/claude/labauto/src/labauto/procedures/sparam-1000base-t1-pair.toml",
+  "file": "pairA",
+  "sweep": {
+   "start_hz": 1000000.0,
+   "stop_hz": 600000000.0,
+   "points": 1200,
+   "ifbw_hz": 1000.0,
+   "power_dbm": 0.0,
+   "averages": 1,
+   "sweep_type": "LIN"
+  },
+  "checks": {
+   "frequency_grid": true,
+   "passivity_max": 0.02,
+   "reciprocity_max_db": 0.1,
+   "trace_noise_max_db": 0.05,
+   "connection_min_db": -60,
+   "length_tol_pct": 12,
+   "nvp": 0.68,
+   "il_rdc_ratio": [
+    0.8,
+    4.0
+   ],
+   "il_per_m_100mhz_db": [
+    0.05,
+    0.6
+   ],
+   "max_repeats": 2,
+   "repeat_on": [
+    "fail"
+   ],
+   "quarantine_on": [
+    "fail"
+   ]
+  }
+ },
+ "instrument": {
+  "vna": {
+   "identity": {
+    "manufacturer": "labauto-sim",
+    "model": "VNA4-8500",
+    "serial": "SIM0001",
+    "firmware": "A.01.20",
+    "idn": "labauto-sim,VNA4-8500,SIM0001,A.01.20"
+   },
+   "address": "SIM::VNA",
+   "dialect": "keysight-pna",
+   "channel": 1,
+   "sweep": {
+    "start_hz": 1000000.0,
+    "stop_hz": 600000000.0,
+    "points": 1200,
+    "ifbw_hz": 1000.0,
+    "power_dbm": 0.0,
+    "averages": 1,
+    "sweep_type": "LIN"
+   },
+   "calset_active": "SOLT4_20260916",
+   "correction_on": true,
+   "capabilities": {
+    "role": "vna",
+    "ports": 4,
+    "fmin_hz": 9000.0,
+    "fmax_hz": 8500000000.0,
+    "tmin_c": 0.0,
+    "tmax_c": 0.0,
+    "features": [
+     "calsets",
+     "s-parameters"
+    ]
+   }
+  },
+  "dmm": {
+   "identity": {
+    "manufacturer": "labauto-sim",
+    "model": "DMM-6.5",
+    "serial": "SIM0003",
+    "firmware": "1.1",
+    "idn": "labauto-sim,DMM-6.5,SIM0003,1.1"
+   },
+   "address": "SIM::DMM",
+   "dialect": "generic-scpi-dmm",
+   "capabilities": {
+    "role": "dmm",
+    "ports": 0,
+    "fmin_hz": 0.0,
+    "fmax_hz": 0.0,
+    "tmin_c": 0.0,
+    "tmax_c": 0.0,
+    "features": [
+     "4-wire-resistance"
+    ]
+   }
+  },
+  "scanner": {
+   "driver": "scanner.queue",
+   "capabilities": {
+    "role": "scanner",
+    "ports": 0,
+    "fmin_hz": 0.0,
+    "fmax_hz": 0.0,
+    "tmin_c": 0.0,
+    "tmax_c": 0.0,
+    "features": [
+     "barcode"
+    ]
+   }
+  }
+ },
+ "calibration": {
+  "id": "CAL-20260916-SOLT4",
+  "date": "2026-09-16T10:30:06+00:00",
+  "type": "SOLT",
+  "ports": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "temperature_c": 23.0,
+  "operator": "sanil",
+  "kit_serial": "85052D-MY12345",
+  "instrument_calset": "SOLT4_20260916",
+  "decision": {
+   "status": "valid",
+   "id": "CAL-20260916-SOLT4",
+   "reasons": [],
+   "age_days": 2.00043371108671,
+   "delta_t_k": 0.0
+  },
+  "verification": {
+   "time": "2026-09-18T10:30:33+00:00",
+   "standard": "CHECK-ATT20",
+   "status": "pass",
+   "port_pairs": [
+    [
+     1,
+     2
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "max_dev_db": 0.03750847704102611,
+   "max_dev_deg": 0.41402701624348776,
+   "min_rl_db": 41.50638059648273,
+   "tol_db": 0.1,
+   "tol_deg": 3.0,
+   "rl_min_db": 30.0,
+   "details": {
+    "1-2": {
+     "max_dev_db": 0.027795893428866236,
+     "max_dev_deg": 0.4135278130979476,
+     "min_rl_db": 42.69794447177543,
+     "mean_dev_db": -0.011959013726409139
+    },
+    "3-4": {
+     "max_dev_db": 0.03750847704102611,
+     "max_dev_deg": 0.41402701624348776,
+     "min_rl_db": 41.50638059648273,
+     "mean_dev_db": -0.021802011313976865
+    }
+   },
+   "file": ""
+  },
+  "age_days": 2.00043371108671,
+  "delta_t_k": 0.0
+ },
+ "fixture": {
+  "method": "none"
+ },
+ "environment": {
+  "ambient_c": 23.0,
+  "humidity_pct": 45.0,
+  "sample_temperature_c": 23.0,
+  "sample_temperature_method": "ambient (no chamber)"
+ },
+ "measurement": {
+  "file": "pairA.s4p",
+  "sha256": "388ce7189346107951d51dcb4f7161c377473f8a5247bd0fb5178710ca6c6ea5",
+  "ports": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "port_map": "A+near,A-near,A+far,A-far",
+  "quantities": null,
+  "attempt": 1,
+  "sweep_s": 4.920000076293945,
+  "measured_at": "2026-09-18T10:30:48+00:00",
+  "sweep_readback": {
+   "start_hz": 1000000.0,
+   "stop_hz": 600000000.0,
+   "points": 1200,
+   "ifbw_hz": 1000.0,
+   "power_dbm": 0.0,
+   "averages": 1,
+   "sweep_type": "LIN"
+  },
+  "nports": 4,
+  "raw": true,
+  "note": "raw instrument data; fixture not removed"
+ },
+ "validation": {
+  "trust": "trusted",
+  "reasons": [],
+  "checks": [
+   {
+    "name": "grid",
+    "status": "pass",
+    "value": 1200.0,
+    "bound": "1200 points 1e+06-6e+08 Hz",
+    "message": ""
+   },
+   {
+    "name": "passivity",
+    "status": "pass",
+    "value": -0.00439744783902285,
+    "bound": "<= 0.02",
+    "message": "max singular value minus one"
+   },
+   {
+    "name": "reciprocity",
+    "status": "pass",
+    "value": 0.010884707669490765,
+    "bound": "<= 0.1 dB",
+    "message": "max |S_ij/S_ji| in dB above -50 dB"
+   },
+   {
+    "name": "connection",
+    "status": "pass",
+    "value": -0.3959548665699914,
+    "bound": ">= -60 dB",
+    "message": "max differential transmission; below the bound = open/unconnected"
+   },
+   {
+    "name": "trace_noise",
+    "status": "pass",
+    "value": 0.00018248122585438998,
+    "bound": "<= 0.05 dB",
+    "message": "std of second differences of IL / sqrt(6)"
+   },
+   {
+    "name": "length",
+    "status": "pass",
+    "value": 14.983409205944712,
+    "bound": "15.0 m +- 12.0 %",
+    "message": "electrical length 14.98 m from group delay 73.5 ns at NVP 0.68"
+   },
+   {
+    "name": "il_rdc",
+    "status": "pass",
+    "value": 3.3231196921084303,
+    "bound": "0.8..4.0",
+    "message": "IL(1 MHz) = 0.396 dB vs DC-resistance floor 0.119 dB (R_loop 2.744 ohm)"
+   },
+   {
+    "name": "il_envelope",
+    "status": "pass",
+    "value": 0.20522795311960668,
+    "bound": "0.05..0.6 dB/m",
+    "message": "insertion loss per metre at 100 MHz"
+   }
+  ],
+  "job_trust": "trusted"
+ },
+ "aux": {
+  "loop_resistance": 2.743531
+ },
+ "software": {
+  "labauto": "0.1.1",
+  "cablecheck": "0.1.1",
+  "numpy": "2.4.4",
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+  "labauto_git": "880a73f",
+  "zprofile": "0.1.0",
+  "cableanalytics": "0.1.0"
+ }
+}

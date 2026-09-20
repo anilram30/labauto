@@ -1,0 +1,29 @@
+name: Bug report
+description: Something produces a wrong or unexpected result
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got instead.
+    validations: {required: true}
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: The smallest command or snippet that shows the problem. Attach the input file if you can share it.
+      render: shell
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "Output of: python -c \"import labauto; print(labauto.__version__)\""
+    validations: {required: true}
+  - type: input
+    id: env
+    attributes:
+      label: Python and operating system
+      placeholder: Python 3.12 on Ubuntu 24.04
+    validations: {required: true}

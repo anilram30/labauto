@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: tests (python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install toolchain dependencies (cablecheck)
+        run: |
+          pip install "git+https://github.com/anilram30/cablecheck.git@main"
+
+      - name: Install package
+        run: pip install -e ".[dev]"
+
+      - name: Run test suite
+        run: pytest -q
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install ruff
+      - name: ruff check
+        run: ruff check src tests
+
+  package:
+    name: build and clean install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install build twine
+      - name: Build wheel and sdist
+        run: python -m build
+      - name: Check metadata
+        run: twine check dist/*
+
+      - name: Install toolchain dependencies (cablecheck)
+        run: |
+          pip install "git+https://github.com/anilram30/cablecheck.git@main"
+
+      - name: Install the built wheel into a clean environment and run the CLI
+        run: |
+          pip install dist/*.whl
+          labauto --help > /dev/null
+          python -c "import labauto; print('labauto', labauto.__version__)"
+
+  docs:
+    name: report builds from source
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install pandoc and XeLaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            pandoc texlive-xetex texlive-fonts-recommended texlive-latex-recommended \
+            lmodern fonts-dejavu fonts-dejavu-extra
+      - name: Build docs/report.pdf
+        run: sh docs/build.sh
+      - name: Upload the report
+        uses: actions/upload-artifact@v7
+        with:
+          name: labauto-report
+          path: docs/report.pdf
