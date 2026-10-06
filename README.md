@@ -149,8 +149,5 @@ is also a change to `docs/report.md`.
 
 MIT — see [LICENSE](LICENSE). Author: Sreeram Anil.
 
-Built with AI assistance; the commit history records it. The engineering decisions, the validation
-strategy and the limitations stated in the report are the substance of the work.
-
 Part of the **[HF cable toolchain](https://github.com/anilram30/hf-cable-toolchain)** · [Report an issue](https://github.com/anilram30/labauto/issues) ·
 [Changelog](CHANGELOG.md)
